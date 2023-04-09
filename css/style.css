@@ -25,6 +25,15 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+.dark-theme-variables{
+    --color-background: #181a1e;
+    --color-white: #20252b;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -130,7 +139,6 @@ aside{
 }
 
 aside .top{
-    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -515,6 +523,11 @@ main .recent-orders a{
     justify-content: center;
 }
 
+.right .sales-analytics .add-product:hover{
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
 .right .sales-analytics .add-product div{
     display: flex;
     align-items: center;
@@ -573,16 +586,6 @@ main .recent-orders a{
     main .insights > div:nth-child(3) {
         margin-left: 0;
     }
-
-    /* main table thead tr th:last-child,
-    main table thead tr th:first-child{
-        display: none;
-    }
-
-    main table body tr td:last-child,
-    main table body tr td:first-child{
-        display: none;
-    } */
 }
 
 @media only screen and (max-width: 768px) {
@@ -593,7 +596,7 @@ main .recent-orders a{
 
     aside{
         position: fixed;
-        left: 0;
+        left: -100%;
         background: var(--color-white);
         width: 18rem;
         z-index: 3;
@@ -601,6 +604,13 @@ main .recent-orders a{
         height: 100%;
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
     }
 
     aside .logo{
